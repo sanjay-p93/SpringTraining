@@ -6,7 +6,7 @@ POST methods - takes two parameters {"a":x,"b":y} and returns the result of oper
 "http://localhost:8080/math/mul"
 "http://localhost:8080/math/div"
 
-GET method - retune the square root of number provided as the request parameter
+GET method - return the square root of number provided as the request parameter
 http://localhost:8080/math/sqrt/{number}
 
 Application also demonstrate RestTemplate used consume RESTful Web Services, The RestTemplate is used to retrieve result from the URI provided.
