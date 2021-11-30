@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Registry</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    
+    <div class="col-lg-6 center-item">
+        <div class="col-12 mt-5 mb-2 list-head">
+            <h1 class="head">Add Student</h1>
+            
+                         
+        </div>   
+        
+        <form action="#" th:action="@{/add}" th:object="${student}" method="post">
+            <div  class="text-danger"></div>
+			    <input type="number" style="display:none;" class="form-control" th:field="*{id}" id="id" value="0" >
+            
+			  <div class="form-group">
+			    <label for="firstName">First Name</label>
+			    <input type="text" class="form-control" th:field="*{fullName.firstName}" id="firstName"  placeholder="Enter first name">
+			  </div>
+			  <div class="form-group">
+			    <label for="lastName">Last Name</label>
+			    <input type="text" class="form-control" th:field="*{fullName.lastName}" id="lastName" placeholder="Enter last name">
+			  </div>
+			  <div class="form-group">
+			    <label for="email">Email address</label>
+			    <input type="email" class="form-control" th:field="*{email}" id="email"  placeholder="Enter email">
+			  </div>
+			  <div class="form-group">
+			    <label for="age">age</label>
+			    <input type="number" class="form-control" th:field="*{age}" id="age"  placeholder="Enter age">
+			  </div>
+			  <div class="form-group">
+			    <label for="grade">Grade</label>
+			    <select class="form-select" th:field="*{grade}">
+				    <option th:value="'1A'" th:text="1A" selected></option>
+				    <option th:value="'1A'" th:text="1B"></option>
+				    <option th:value="'2A'" th:text="2A"></option>
+				    <option th:value="'2A'" th:text="2B"></option>
+				</select>
+			  </div>
+
+                <div class="form-group col-md-10 ">
+                    <button  type="submit" class="btn btn-dark  mr-2"> Add</button>
+                    <a href="/"><span class="btn btn-light"> Cancel</span></a>
+                </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Student Registry</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container">
+            <h2 align="left" class="text-primary">Students</h2>
+            <a class="float-right" href="/"><span class="text-primary">back</span></a>
+            <br>
+            <table class="table" align="center">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student: ${students}">
+						    <td th:text="${student.id}" />
+						    <td th:text="${student.fullName.firstName}" />
+						    <td th:text="${student.fullName.lastName}" />
+						    <td th:text="${student.email}" />
+						    <td th:text="${student.age}" />
+						    <td><a th:href="@{'/delete/' + ${student.id}}"><button class="btn btn-light"> Delete</button></a>
+					</tr>
+                </tbody>
+              </table>  
+        </div>     
+</body>
+</html>
