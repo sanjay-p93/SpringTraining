@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        li{
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body style="padding: 20px;">
+	<header>
+		<h1>jQuery sample event and selectors POC</h1>
+	</header>
+	<div id="container">
+		<h3 style="width: max-content;">Events</h3>
+		<p class="para1">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+		<p class="para2">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+        </p>
+		<button id="btn1" class="btnClass">Button 1</button>
+		<button id="btn2">Button 2</button>
+		<hr>
+        <ul id="list">
+			<li>First Item</li>
+			<li>Even Item</li>
+			<li>Odd Item</li>
+			<li>Even Item</li>
+			<li>Odd Item</li>
+			<li>Even Item</li>
+			<li>Last Item</li>
+		</ul>
+		<form id="form">
+			<label>Name</label><br>
+			<input type="text" id="name" name="name">
+			<br>
+			<label>Email</label><br>
+			<input type="text" id="email" name="email">
+			<br>
+			<label>Gender</label><br>
+			<select id="gender" name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+			<br>
+			<input class="submit btn btn-primary" type="submit" style="margin-top: 10px;" value="Submit">
+		</form>
+
+	</div>
+
+	<script>
+		$(document).ready(function(){
+			
+			$('#btn1').click(function(){
+				alert('Button Clicked!');
+			});
+
+			$('#btn2').on('click', function(){
+				$('.para1').toggle();
+			});
+			
+
+			$('#btn2').dblclick(function(){
+				alert('Button double Clicked!');
+			});
+
+			$('h3').hover(function(){
+                $('.para1').toggle();
+			});
+
+			$('.para2').on('mouseenter', function(){
+                $('.para2').css('color', 'red');
+			});
+
+			$('.para2').on('mouseleave', function(){
+                $('.para2').css('color', 'black');
+			});
+
+			$('#btn1').on('mousemove', function(e){
+				console.log("here");
+				console.log('Coords: Y: '+e.clientY+" X: "+e.clientX);
+			});
+		
+
+			$('button').click(function(e){
+				console.log(e.currentTarget.innerHTML);
+				console.log(e.currentTarget.outerHTML);
+				console.log(e.currentTarget.id);
+			});
+
+			$(document).on('mousemove', function(e){
+				console.log('Coords: Y: '+e.clientY+" X: "+e.clientX);
+			});
+
+            $('ul#list li:first').css('color', 'red');
+            $('ul#list li:last').css('color', 'green');
+            $('ul#list li:even').css('background-color', 'yellow');
+            $('ul#list li:odd').css('background-color', '#cccccc');
+
+			$('input').focus(function(){
+				$(this).css('background', 'pink');
+			});
+
+			$('input').blur(function(){
+				$(this).css('background', 'white');
+			});
+
+			$('.submit').focus(function(){
+				$(this).css('background', 'blue');
+			});
+
+			$('input').keyup(function(e){
+				console.log(e.target.value);
+			});
+
+			$('select#gender').change(function(e){
+				alert(e.target.value);
+			});
+
+			$('#form').submit(function(e){
+				e.preventDefault();
+				var name = $('#name').val();
+                if(name.length>0){
+                    alert("from submitted "+name);
+
+                }
+                else{
+                    alert("please enter a name");
+                }
+			});
+		});
+	</script>
+</body>
+</html>
