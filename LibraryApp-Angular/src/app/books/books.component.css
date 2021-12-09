@@ -1,0 +1,15 @@
+.list-head{
+    display: flex;
+    justify-content: space-between;
+}
+.head{
+    display: inline-block;
+}
+.add{
+    height: 40px;
+    color: white;
+    background-color: rgba(7, 77, 54, 0.932);;
+}
+.container-fluid{
+    padding: 0 3em;
+}

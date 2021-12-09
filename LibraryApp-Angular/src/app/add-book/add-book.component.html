@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    
+    <div class="col-lg-6 center-item">
+        <div class="col-12 mt-5 mb-2 list-head">
+            <h1 class="head">Add Book</h1>
+                         
+        </div>   
+        <form [formGroup]="bookForm"  (submit)="save()">
+            <div  class="text-danger"></div>
+                <div class="form-group col-md-10">
+                    <label class="control-label text-secondary">Name</label>
+                    <input [class.is-invalid]="bookForm.get('name')?.invalid && bookForm.get('name')?.touched " 
+                        formControlName="name" type="text" class="form-control" >
+                    <div *ngIf="bookForm.get('name')?.invalid && bookForm.get('name')?.touched">
+                        <small class="text-danger">Name is required</small>
+                    </div>
+                </div>
+                <div class="form-group col-md-10">
+                    <label class="control-label text-secondary">Description</label>
+                    <input [class.is-invalid]="bookForm.get('description')?.invalid && bookForm.get('description')?.touched " 
+                        formControlName="description" type="text" class="form-control" >
+                    <small *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched" class="text-danger">Description is required</small>
+                </div>
+                <div class="form-group col-md-10">
+                    <label class="control-label text-secondary">Price</label>
+                    <input [class.is-invalid]="bookForm.get('price')?.invalid && bookForm.get('price')?.touched " 
+                        formControlName="price" type="text" class="form-control" >
+                    <small *ngIf="bookForm.get('price')?.invalid && bookForm.get('price')?.touched" class="text-danger">Please enter a valid price less than 100000</small>
+                </div>
+                <div class="form-group col-md-10">
+                    <label class="control-label text-secondary">Genre</label>
+                    <select [class.is-invalid]="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched"
+                    formControlName="genre"  class="form-control col-md-6">
+                        <option value="">Select a genre</option>
+                        <option *ngFor="let genre of genres" [value]="genre">
+                            {{genre}}
+                          </option>
+                    </select>
+                    <small *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched" class="text-danger">Genre is required</small>
+                    
+                </div>
+
+                <div class="form-group col-md-10 ">
+                    <button  type="submit" class="btn btn-dark  mr-2"> Add</button>
+                    <button routerLink="/home" class="btn btn-light"> Cancel</button>
+                </div>
+        </form>
+    </div>
+</div>

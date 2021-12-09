@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="col-lg-12 center-item">
+        <div class="col-12 mt-5 mb-2 list-head">
+            <h1 class="head">Genre</h1>                    
+        </div>   
+    </div>
+    <div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text"  (click)="add()">Add</span>
+            </div>
+          </div>
+        <label for="new-genre">Genre: </label>
+        <input id="new-genre" [(ngModel)]='newGenre' />
+        <button class="btn add" (click)="add()">Add</button>
+        
+      </div>
+      
+      <ul class="genres">
+        <li *ngFor="let genre of genres; let i=index">
+          <a >
+            <span class="badge">{{i+1}}</span> {{genre}}
+          </a>
+          <button class="delete" title="delete genre"
+            (click)="delete(genre)">x</button>
+        </li>
+      </ul>
+
+</div>

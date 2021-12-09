@@ -1,0 +1,12 @@
+.navbar{
+    background-color: rgba(7, 77, 54, 0.932);
+    color: white; 
+    padding: 1% 2%;
+    height: 6rem;
+    font-size: large;
+}
+.app-name{
+    border: solid;
+    border-radius: 10px;
+    padding: 11px;
+}
