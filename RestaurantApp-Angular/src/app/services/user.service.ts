@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user';
 
 @Injectable({
@@ -8,7 +9,9 @@ export class UserService {
 
   USERS:User[]=[];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   getAll():User[]{
     return this.USERS;
@@ -44,5 +47,11 @@ export class UserService {
       return user;
     }
     return undefined;
+  }
+
+  logOut() {
+    console.log("here");
+    localStorage.clear();
+    this.router.navigate(['signin']);
   }
 }

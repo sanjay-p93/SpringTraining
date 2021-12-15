@@ -1,9 +1,9 @@
 
 <div class="dash">
-    <a routerLink="/restaurant" *ngIf="user?.role !=='OWNER'">
+    <a routerLink="/restaurants" *ngIf="user?.role !=='OWNER'">
         Restaurants
     </a>
-    <a routerLink="/menu" *ngIf="user?.role !=='USER'">
+    <a routerLink="/menus" *ngIf="user?.role !=='USER'">
         Menu
     </a>
 </div>

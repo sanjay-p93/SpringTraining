@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthRequest } from 'src/app/models/AuthRequest';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 import { AlertDialogComponent } from 'src/app/shared/alert-dialog/alert-dialog.component';
 import { PasswordValidator } from 'src/app/shared/password.validator';
 
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService:AuthService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private navBarService:NavBarService,
     ) { }
 
   signupForm!: FormGroup;
@@ -45,7 +47,7 @@ export class SignupComponent implements OnInit {
       return
     }
     const formValue = this.signupForm.value;
-    const user  = <User>{name:formValue.name,password :formValue.password,email :formValue.email};
+    const user  = <User>formValue;
     this.authService.signUp(user);
     this.signIn(user);
   }
@@ -60,6 +62,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.navBarService.hideNav();
     this.setUserDetails();
   }
 }

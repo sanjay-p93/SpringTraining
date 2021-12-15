@@ -1,0 +1,26 @@
+.navbar{
+    justify-content: space-between;
+    background-color:#1b4425;
+    color: white;
+}
+span{
+    padding-right: 1rem;
+}
+.app-name{
+    font-size: xxx-large;
+    font-family: Copperplate,fantasy;
+}
+.nav-option{
+    font-size: medium;
+}
+.nav-option:hover{
+    color: rgb(179, 177, 177);
+}
+
+.nav-icon{
+    vertical-align: text-top;
+    text-align: center
+}
+.nav-icon:hover{
+    color: rgb(179, 177, 177);
+}

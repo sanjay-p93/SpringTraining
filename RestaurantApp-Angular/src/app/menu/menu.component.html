@@ -1,0 +1,32 @@
+<h2>Menu</h2>
+<ul class="menu">
+    <li *ngFor="let menu of menus; let i=index">
+      <a>
+        <span class="badge">{{menu.id}}</span> {{menu.name}}
+      </a>
+      <button class="delete"  *ngIf="user?.role =='ADMIN'" title="delete restaurant"
+        (click)="delete(menu)" >x</button>
+        <button class="add-to-resturant"  *ngIf="user?.role =='OWNER'" title="add to resturant"
+          (click)="addToRestaurant(menu)" >+</button>
+    </li>
+  </ul>
+  <div *ngIf="user?.role =='ADMIN'">
+    <label for="new-menu">Menu name: </label>
+    <input id="new-menu" #menuName />
+  
+    <button class="add-button" (click)="add(menuName.value); menuName.value=''">
+      Add Menu
+    </button>
+  </div>
+<div *ngIf="user?.role =='OWNER'&& restaurant?.id!=0">
+<h3>Added Menus</h3>
+    <ul class="menu">
+      <li *ngFor="let menuO of restaurant?.menuList">
+        <a>
+          <span class="badge">{{menuO.id}}</span> {{menuO.name}}
+        </a>
+        <button class="remove"  title="remove menu"
+          (click)="remove(menuO)" >x</button>
+      </li>
+    </ul>
+</div>

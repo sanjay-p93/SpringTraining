@@ -1,0 +1,17 @@
+<h2>Restaurant</h2>
+<ul class="restaurant">
+    <li *ngFor="let restaurant of restaurants; let i=index">
+      <a routerLink="/restaurantmenu/{{restaurant.id}}">
+        <span class="badge">{{restaurant.id}}</span> {{restaurant.name}}
+      </a>
+      <button class="delete" *ngIf="user?.role =='ADMIN'" title="delete restaurant"
+        (click)="delete(restaurant)">x</button>
+    </li>
+  </ul>
+  <div  *ngIf="user?.role =='ADMIN'">
+    <input id="new-restaurant" #restaurantName placeholder="Add new"/>
+  
+    <button class="add-button" (click)="add(restaurantName.value); restaurantName.value=''">
+      Add Restaurant
+    </button>
+  </div>

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthRequest } from 'src/app/models/AuthRequest';
 import { AuthService } from 'src/app/services/auth.service';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +15,8 @@ export class SigninComponent implements OnInit {
   constructor( 
     private formBuilder: FormBuilder, 
     private authService:AuthService,
-    private router: Router
+    private router: Router,
+    private navBarService:NavBarService,
   ) { }
 
   signinForm!: FormGroup;
@@ -43,6 +45,7 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.navBarService.hideNav();
     this.setUserDetails();
   }
 

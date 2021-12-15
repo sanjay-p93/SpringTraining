@@ -8,11 +8,19 @@ import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './shared/material.module';
 import { AlertDialogComponent } from './shared/alert-dialog/alert-dialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { ResturantMenuComponent } from './resturant-menu/resturant-menu.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    NavBarComponent,
+    RestaurantComponent,
+    MenuComponent,
+    ResturantMenuComponent,
     AlertDialogComponent
   ],
   imports: [

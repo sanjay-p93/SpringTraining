@@ -1,0 +1,20 @@
+<h2>{{restaurant?.name}} - Menu</h2>
+<div >
+    <ul class="menu">
+        <li *ngFor="let menu of restaurant?.menuList">
+        <a (click)="addToCart(menu)">
+            <span class="badge">{{menu.id}}</span> {{menu.name}}
+        </a>
+    </ul>
+</div>
+
+<div *ngIf="user?.role =='USER'&& cart.length>0">
+    <h3>cart</h3>
+    <ul class="menu">
+        <li *ngFor="let menu of cart">
+        <a>
+            <span class="badge">{{menu.id}}</span> {{menu.name}}
+        </a>
+    </ul>
+    <button  class="add-button"(click)="checkOut()">Checkout</button>
+</div>
